@@ -4,16 +4,16 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/beevik/etree"
-	"github.com/yakovlevdmv/gosoap"
+	"github.com/newmind/gosoap"
 	"strconv"
 	"net/http"
 	"io/ioutil"
-	"github.com/yakovlevdmv/WS-Discovery"
+	"github.com/newmind/WS-Discovery"
 	"strings"
-	"github.com/yakovlevdmv/goonvif/Device"
+	"github.com/newmind/goonvif/Device"
 	"errors"
 	"reflect"
-	"github.com/yakovlevdmv/goonvif/networking"
+	"github.com/newmind/goonvif/networking"
 )
 
 var Xlmns = map[string]string {

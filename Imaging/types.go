@@ -1,8 +1,8 @@
 package Imaging
 
 import (
-	"github.com/yakovlevdmv/goonvif/xsd/onvif"
-	"github.com/yakovlevdmv/goonvif/xsd"
+	"github.com/newmind/goonvif/xsd/onvif"
+	"github.com/newmind/goonvif/xsd"
 )
 
 type GetServiceCapabilities struct {
