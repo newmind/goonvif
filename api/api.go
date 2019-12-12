@@ -8,12 +8,12 @@ import (
 	"strings"
 	"github.com/beevik/etree"
 	"github.com/gin-gonic/gin"
-	"github.com/yakovlevdmv/gosoap"
-	"github.com/yakovlevdmv/goonvif"
-	"github.com/yakovlevdmv/goonvif/networking"
+	"github.com/newmind/gosoap"
+	"github.com/newmind/goonvif"
+	"github.com/newmind/goonvif/networking"
 	"net/http"
 	"io/ioutil"
-	"github.com/yakovlevdmv/WS-Discovery"
+	"github.com/newmind/WS-Discovery"
 	"path"
 )
 
