@@ -1,8 +1,8 @@
 package Analytics
 
 import (
-	"github.com/n/goonvif/xsd"
-	"github.com/newmindewmind/goonv/onvifi/xsd"
+	"github.com/newmind/goonvif/xsd/onvif"
+	"github.com/newmind/goonvif/xsd"
 )
 
 type GetSupportedRules struct {

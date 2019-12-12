@@ -1,10 +1,10 @@
 package api
 
 import (
+	"github.com/newmind/goonvif/PTZ"
 	"errors"
-	"github.com/n/goonvif/Media"
 	"github.com/newmind/goonvif/Device"
-	"github.com/newmindewmind/goPTZ/edia"
+	"github.com/newmind/goonvif/Media"
 )
 
 func getPTZStructByName(name string) (interface{}, error) {
