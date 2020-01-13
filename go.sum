@@ -30,8 +30,8 @@ github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742 h1:Esafd1046DLD
 github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742/go.mod h1:bx2lNnkwVCuqBIxFjflWJWanXIb3RllmbCylyMrvgv0=
 github.com/newmind/Golang-iso8601-duration v0.0.0-20180403125811-e5db0413b903 h1:Z6O9A4WwvRkn7iAnfc4Nr/WEnJoDIelQzcZRR0NgN/I=
 github.com/newmind/Golang-iso8601-duration v0.0.0-20180403125811-e5db0413b903/go.mod h1:KECIZBhJByGqssMkAvNdYsb68fWRV6oH37AaQwsGuO8=
-github.com/newmind/WS-Discovery v0.0.0-20191212052507-2930966779c8 h1:pZyawP/R7H3kYM2SlmYxZDLgz6+qutCoVF95hA+tKNs=
-github.com/newmind/WS-Discovery v0.0.0-20191212052507-2930966779c8/go.mod h1:QAH2koV9zYKQlwtV2Drz/7GORGL7uuTkA7pzuTDN21k=
+github.com/newmind/WS-Discovery v1.0.1 h1:c0gw+uM79cibJWabLe3cZrhvsCJsLyKoRXi6AhR6myA=
+github.com/newmind/WS-Discovery v1.0.1/go.mod h1:flXkd68cgvQ5ydQ1zR+V/gzgFK120THQMxTKKFvSa80=
 github.com/newmind/gosoap v1.0.1 h1:ryTl2Puq0wb2TsKAHq0ZGQlzX4BBfdrYowxUH8P5SFM=
 github.com/newmind/gosoap v1.0.1/go.mod h1:C6mbYozU8FcR3hONKJx9QM/QoULq3l+XGnqu9whLSwU=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
