@@ -2,18 +2,19 @@ package goonvif
 
 import (
 	"encoding/xml"
+	"errors"
 	"fmt"
 	"github.com/beevik/etree"
-	"github.com/newmind/gosoap"
-	"strconv"
-	"net/http"
-	"io/ioutil"
 	"github.com/newmind/WS-Discovery"
-	"strings"
 	"github.com/newmind/goonvif/Device"
-	"errors"
-	"reflect"
 	"github.com/newmind/goonvif/networking"
+	"github.com/newmind/gosoap"
+	"io/ioutil"
+	"net/http"
+	"reflect"
+	"strconv"
+	"strings"
+	"time"
 )
 
 var Xlmns = map[string]string {
@@ -80,6 +81,7 @@ type device struct {
 	endpoints map[string]string
 	info deviceInfo
 
+	offsetTime time.Duration // nowUTC - deviceTimeUTC
 }
 
 func (dev *device)GetServices() map[string]string {
@@ -163,6 +165,32 @@ func (dev *device) getSupportedServices(resp *http.Response) {
 	//}
 }
 
+func (dev *device) getSystemDataAndTime(resp *http.Response) {
+	doc := etree.NewDocument()
+
+	data, _ := ioutil.ReadAll(resp.Body)
+
+	if err := doc.ReadFromBytes(data); err != nil {
+		//log.Println(err.Error())
+		return
+	}
+
+	utcdatetime := doc.FindElement("./Envelope/Body/GetSystemDateAndTimeResponse/SystemDateAndTime/UTCDateTime")
+	if utcdatetime == nil {
+		return
+	}
+
+	year, _ := strconv.Atoi(utcdatetime.FindElement("./Date/Year").Text())
+	month, _ := strconv.Atoi(utcdatetime.FindElement("./Date/Month").Text())
+	day, _ := strconv.Atoi(utcdatetime.FindElement("./Date/Day").Text())
+	hour, _ := strconv.Atoi(utcdatetime.FindElement("./Time/Hour").Text())
+	minute, _ := strconv.Atoi(utcdatetime.FindElement("./Time/Minute").Text())
+	second, _ := strconv.Atoi(utcdatetime.FindElement("./Time/Second").Text())
+
+	utcDevice := time.Date(year, time.Month(month), day, hour, minute, second, 0, time.UTC)
+	dev.offsetTime = time.Now().UTC().Sub(utcDevice)
+}
+
 //NewDevice function construct a ONVIF Device entity
 func NewDevice(xaddr string) (*device, error) {
 	dev := new(device)
@@ -181,6 +209,16 @@ func NewDevice(xaddr string) (*device, error) {
 	}
 
 	dev.getSupportedServices(resp)
+
+	//
+	getSysDatetime := Device.GetSystemDateAndTime{}
+	resp, err = dev.CallMethod(getSysDatetime)
+	if err != nil || resp.StatusCode != http.StatusOK {
+		//panic(errors.New("camera is not available at " + xaddr + " or it does not support ONVIF services"))
+		return nil, errors.New("GetSystemDateAndTime at " + xaddr + " error")
+	}
+	dev.getSystemDataAndTime(resp)
+
 	return dev, nil
 }
 
@@ -301,7 +339,7 @@ func (dev device) callAuthorizedMethod(endpoint string, method interface{}) (*ht
 	Adding namespaces and WS-Security headers
 	 */
 	soap.AddRootNamespaces(Xlmns)
-	soap.AddWSSecurity(dev.login, dev.password)
+	soap.AddWSSecurityWithTime(dev.login, dev.password, time.Now().UTC().Add(-dev.offsetTime))
 
 
 	/*
