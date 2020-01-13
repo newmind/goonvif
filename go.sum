@@ -34,6 +34,8 @@ github.com/newmind/WS-Discovery v1.0.1 h1:c0gw+uM79cibJWabLe3cZrhvsCJsLyKoRXi6Ah
 github.com/newmind/WS-Discovery v1.0.1/go.mod h1:flXkd68cgvQ5ydQ1zR+V/gzgFK120THQMxTKKFvSa80=
 github.com/newmind/gosoap v1.0.1 h1:ryTl2Puq0wb2TsKAHq0ZGQlzX4BBfdrYowxUH8P5SFM=
 github.com/newmind/gosoap v1.0.1/go.mod h1:C6mbYozU8FcR3hONKJx9QM/QoULq3l+XGnqu9whLSwU=
+github.com/newmind/gosoap v1.1.0 h1:6CELXV74ze80SlNPDyCRPFaVGMJ0fXIMjQt3DcL/RB8=
+github.com/newmind/gosoap v1.1.0/go.mod h1:C6mbYozU8FcR3hONKJx9QM/QoULq3l+XGnqu9whLSwU=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
