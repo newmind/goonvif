@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 	"github.com/beevik/etree"
-	"github.com/newmind/WS-Discovery"
-	"github.com/newmind/goonvif/Device"
-	"github.com/newmind/goonvif/networking"
-	"github.com/newmind/gosoap"
+	"gitlab.markany.wm/external/WS-Discovery"
+	"gitlab.markany.wm/external/goonvif/Device"
+	"gitlab.markany.wm/external/goonvif/networking"
+	"gitlab.markany.wm/external/gosoap"
 	"io/ioutil"
 	"net/http"
 	"reflect"
@@ -19,6 +19,7 @@ import (
 
 var Xlmns = map[string]string {
 	"onvif":"http://www.onvif.org/ver10/schema",
+	"tt":"http://www.onvif.org/ver10/schema",
 	"tds":"http://www.onvif.org/ver10/device/wsdl",
 	"trt":"http://www.onvif.org/ver10/media/wsdl",
 	"tev":"http://www.onvif.org/ver10/events/wsdl",

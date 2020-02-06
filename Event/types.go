@@ -1,7 +1,7 @@
 package Event
 
 import (
-	"github.com/newmind/goonvif/xsd"
+	"gitlab.markany.wm/external/goonvif/xsd"
 )
 
 type FilterType xsd.String
@@ -83,13 +83,13 @@ type ProducerReference EndpointReferenceType
 type Message xsd.AnyType
 
 type TopicExpressionType struct { //wsnt http://docs.oasis-open.org/wsn/b-2.xsd
-	Dialect xsd.AnyURI `xml:"Dialect,attr"`
+	Dialect xsd.AnyURI `swaggertype:"string" xml:"Dialect,attr"`
 }
 
 //Event main types
 
 type GetServiceCapabilities struct {
-	XMLName string `xml:"tev:GetServiceCapabilities"`
+	XMLName string `xml:"http://www.onvif.org/ver10/events/wsdl GetServiceCapabilities"  json"-"`
 }
 
 type GetServiceCapabilitiesResponse struct {
@@ -98,10 +98,10 @@ type GetServiceCapabilitiesResponse struct {
 
 //BUG(r) Bad AbsoluteOrRelativeTimeType type
 type CreatePullPointSubscription struct {
-	XMLName                string                     `xml:"tev:CreatePullPointSubscription"`
-	Filter                 FilterType                 `xml:"tev:Filter"`
-	InitialTerminationTime AbsoluteOrRelativeTimeType `xml:"tev:InitialTerminationTime"`
-	SubscriptionPolicy     SubscriptionPolicy         `xml:"tev:SubscriptionPolicy"`
+	XMLName                string                     `xml:"http://www.onvif.org/ver10/events/wsdl CreatePullPointSubscription"  json"-"`
+	Filter                 FilterType                 `xml:"http://www.onvif.org/ver10/events/wsdl Filter"`
+	InitialTerminationTime AbsoluteOrRelativeTimeType `xml:"http://www.onvif.org/ver10/events/wsdl InitialTerminationTime"`
+	SubscriptionPolicy     SubscriptionPolicy         `xml:"http://www.onvif.org/ver10/events/wsdl SubscriptionPolicy"`
 }
 
 type CreatePullPointSubscriptionResponse struct {
@@ -147,7 +147,7 @@ type SubscribeCreationFailedFault struct {
 }
 
 type GetEventProperties struct {
-	XMLName string `xml:"tev:GetEventProperties"`
+	XMLName string `xml:"http://www.onvif.org/ver10/events/wsdl GetEventProperties"  json"-"`
 }
 
 type GetEventPropertiesResponse struct {
@@ -163,9 +163,9 @@ type GetEventPropertiesResponse struct {
 //Port type PullPointSubscription
 
 type PullMessages struct {
-	XMLName      string       `xml:"tev:PullMessages"`
-	Timeout      xsd.Duration `xml:"tev:Timeout"`
-	MessageLimit xsd.Int      `xml:"tev:MessageLimit"`
+	XMLName      string       `xml:"http://www.onvif.org/ver10/events/wsdl PullMessages"  json"-"`
+	Timeout      xsd.Duration `xml:"http://www.onvif.org/ver10/events/wsdl Timeout"`
+	MessageLimit xsd.Int      `xml:"http://www.onvif.org/ver10/events/wsdl MessageLimit"`
 }
 
 type PullMessagesResponse struct {
@@ -180,16 +180,16 @@ type PullMessagesFaultResponse struct {
 }
 
 type Seek struct {
-	XMLName string       `xml:"tev:Seek"`
-	UtcTime xsd.DateTime `xml:"tev:UtcTime"`
-	Reverse xsd.Boolean  `xml:"tev:Reverse"`
+	XMLName string       `xml:"http://www.onvif.org/ver10/events/wsdl Seek"  json"-"`
+	UtcTime xsd.DateTime `xml:"http://www.onvif.org/ver10/events/wsdl UtcTime"`
+	Reverse xsd.Boolean  `xml:"http://www.onvif.org/ver10/events/wsdl Reverse"`
 }
 
 type SeekResponse struct {
 }
 
 type SetSynchronizationPoint struct {
-	XMLName string `xml:"tev:SetSynchronizationPoint"`
+	XMLName string `xml:"http://www.onvif.org/ver10/events/wsdl SetSynchronizationPoint"  json"-"`
 }
 
 type SetSynchronizationPointResponse struct {
